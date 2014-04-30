@@ -1,6 +1,6 @@
 # bacon-cipher [![Build status](https://travis-ci.org/mathiasbynens/bacon-cipher.svg?branch=master)](https://travis-ci.org/mathiasbynens/bacon-cipher) [![Dependency status](https://gemnasium.com/mathiasbynens/bacon-cipher.svg)](https://gemnasium.com/mathiasbynens/bacon-cipher)
 
-_bacon-cipher_ is a JavaScript implementation of [Bacon’s cipher, a.k.a. the Baconian cipher](http://en.wikipedia.org/wiki/Bacon's_cipher). It can be used to encode plaintext to Bacon-ciphertext, or the other way around (i.e. decoding).
+_bacon-cipher_ is a JavaScript implementation of [Bacon’s cipher, a.k.a. the Baconian cipher](http://en.wikipedia.org/wiki/Bacon's_cipher). It can be used to encode plaintext to Bacon-ciphertext, or the other way around (i.e. decoding). [Here’s an online demo.](http://mothereff.in/bacon)
 
 By default it uses the most common Bacon cipher alphabet, i.e. `ABCDEFGHIKLMNOPQRSTUWXYZ` (24 letters). This boils down to the following translations:
 
