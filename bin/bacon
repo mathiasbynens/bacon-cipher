@@ -1,0 +1,121 @@
+#!/usr/bin/env node
+(function() {
+
+	var fs = require('fs');
+	var bacon = require('../bacon.js');
+	var strings = process.argv.splice(2);
+	var stdin = process.stdin;
+	var data;
+	var timeout;
+	var action;
+	var options = {};
+	var log = console.log;
+
+	var main = function() {
+		var option = strings[0];
+		var count = 0;
+
+		if (/^(?:-h|--help|undefined)$/.test(option)) {
+			log(
+				'bacon-cipher v%s - http://mths.be/bacon',
+				bacon.version
+			);
+			log([
+				'\nUsage:\n',
+				'\tbacon [-e | --encode] [--alphabet=string] string',
+				'\tbacon [-d | --decode] [--alphabet=string] string',
+				'\tbacon [-v | --version]',
+				'\tbacon [-h | --help]',
+				'\nExamples:\n',
+				'\tbacon --encode \'BACON\'',
+				'\techo \'AAAABAAAAAAAABAABBABABBAA\' | bacon --decode',
+				'\tbacon --encode --alphabet=\'ABCDEFGHIJKLMNOPQRSTUVWXYZ\' \'vendetta\''
+			].join('\n'));
+			return process.exit(1);
+		}
+
+		if (/^(?:-v|--version)$/.test(option)) {
+			log('v%s', bacon.version);
+			return process.exit(1);
+		}
+
+		strings.forEach(function(string) {
+			// Process options
+			if (string == '-e' || string == '--encode') {
+				action = 'encode';
+				return;
+			}
+			if (string == '-d' || string == '--decode') {
+				action = 'decode';
+				return;
+			}
+			var matches;
+			if (matches = string.match(/^--alphabet=(.+)/)) {
+				options.alphabet = matches[1];
+				return;
+			}
+			if (string == '--strict') {
+				action = 'decode';
+				options.strict = true;
+				return;
+			}
+			// Process string(s)
+			var result;
+			if (!action) {
+				log('Error: bacon requires at least one option and a string argument.');
+				log('Try `bacon --help` for more information.');
+				return process.exit(1);
+			}
+			try {
+				result = bacon[action](string, options);
+				log(result);
+				count++;
+			} catch (error) {
+				log(error.message + '\n');
+				log('Error: failed to %s.', action);
+				log('If you think this is a bug in bacon-cipher, please report it:');
+				log('https://github.com/mathiasbynens/bacon-cipher/issues/new');
+				log('\nStack trace using bacon-cipher@%s:\n', bacon.version);
+				log(error.stack);
+				return process.exit(1);
+			}
+		});
+		if (!count) {
+			log('Error: bacon requires a string argument.');
+			log('Try `bacon --help` for more information.');
+			return process.exit(1);
+		}
+		// Return with exit status 0 outside of the `forEach` loop, in case
+		// multiple strings were passed in.
+		return process.exit(0);
+	};
+
+	if (stdin.isTTY) {
+		// handle shell arguments
+		main();
+	} else {
+		// Either the script is called from within a non-TTY context, or `stdin`
+		// content is being piped in.
+		if (!process.stdout.isTTY) {
+			// The script was called from a non-TTY context. This is a rather uncommon
+			// use case we don’t actively support. However, we don’t want the script
+			// to wait forever in such cases, so…
+			timeout = setTimeout(function() {
+				// …if no piped data arrived after a whole minute, handle shell
+				// arguments instead.
+				main();
+			}, 60000);
+		}
+		data = '';
+		stdin.on('data', function(chunk) {
+			clearTimeout(timeout);
+			data += chunk;
+		});
+		stdin.on('end', function() {
+			strings.push(data.trim());
+			main();
+		});
+		stdin.resume();
+	}
+
+}());

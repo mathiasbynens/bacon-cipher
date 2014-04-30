@@ -1,0 +1,25 @@
+{
+	"name": "bacon-cipher",
+	"version": "0.1.0",
+	"description": "A robust JavaScript implementation of Bacon’s cipher, a.k.a. the Baconian cipher.",
+	"repo": "mathiasbynens/bacon-cipher",
+	"license": "MIT",
+	"scripts": [
+		"bacon.js"
+	],
+	"main": "bacon.js",
+	"keywords": [
+		"string",
+		"bacon",
+		"baconian",
+		"cipher",
+		"crypto",
+		"cryptography",
+		"stegano",
+		"steganography",
+		"encode",
+		"encrypt",
+		"decode",
+		"decrypt"
+	]
+}

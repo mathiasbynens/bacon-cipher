@@ -1,0 +1,16 @@
+{
+	"name": "bacon-cipher",
+	"version": "0.1.0",
+	"main": "bacon.js",
+	"ignore": [
+		"bin",
+		"coverage",
+		"man",
+		"tests",
+		".*",
+		"component.json",
+		"Gruntfile.js",
+		"node_modules",
+		"package.json"
+	]
+}
