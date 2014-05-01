@@ -177,6 +177,10 @@ Once that’s done, you can run the unit tests in Node using `npm test` or `node
 
 To generate the code coverage report, use `grunt cover`.
 
+## Notes
+
+This project inspired Joseph Werle to create [a C implementation of the Baconian cipher](https://github.com/jwerle/libbacon). Check it out!
+
 ## Author
 
 | [![twitter/mathias](https://gravatar.com/avatar/24e08a9ea84deb17ae121074d0f17125?s=70)](https://twitter.com/mathias "Follow @mathias on Twitter") |
