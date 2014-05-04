@@ -54,11 +54,6 @@
 				options.alphabet = matches[1];
 				return;
 			}
-			if (string == '--strict') {
-				action = 'decode';
-				options.strict = true;
-				return;
-			}
 			// Process string(s)
 			var result;
 			if (!action) {
@@ -70,13 +65,13 @@
 				result = bacon[action](string, options);
 				log(result);
 				count++;
-			} catch (error) {
-				log(error.message + '\n');
+			} catch (exception) {
+				log(exception.message + '\n');
 				log('Error: failed to %s.', action);
 				log('If you think this is a bug in bacon-cipher, please report it:');
 				log('https://github.com/mathiasbynens/bacon-cipher/issues/new');
 				log('\nStack trace using bacon-cipher@%s:\n', bacon.version);
-				log(error.stack);
+				log(exception.stack);
 				return process.exit(1);
 			}
 		});
