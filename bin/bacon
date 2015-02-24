@@ -17,7 +17,7 @@
 
 		if (/^(?:-h|--help|undefined)$/.test(option)) {
 			log(
-				'bacon-cipher v%s - http://mths.be/bacon',
+				'bacon-cipher v%s - https://mths.be/bacon',
 				bacon.version
 			);
 			log([

@@ -1,6 +1,6 @@
 # bacon-cipher [![Build status](https://travis-ci.org/mathiasbynens/bacon-cipher.svg?branch=master)](https://travis-ci.org/mathiasbynens/bacon-cipher) [![Dependency status](https://gemnasium.com/mathiasbynens/bacon-cipher.svg)](https://gemnasium.com/mathiasbynens/bacon-cipher)
 
-_bacon-cipher_ is a JavaScript implementation of [Bacon’s cipher, a.k.a. the Baconian cipher](http://en.wikipedia.org/wiki/Bacon's_cipher). It can be used to encode plaintext to Bacon-ciphertext, or the other way around (i.e. decoding). [Here’s an online demo.](http://mothereff.in/bacon)
+_bacon-cipher_ is a JavaScript implementation of [Bacon’s cipher, a.k.a. the Baconian cipher](http://en.wikipedia.org/wiki/Bacon's_cipher). It can be used to encode plaintext to Bacon-ciphertext, or the other way around (i.e. decoding). [Here’s an online demo.](https://mothereff.in/bacon)
 
 By default it uses the most common Bacon cipher alphabet, i.e. `ABCDEFGHIKLMNOPQRSTUWXYZ` (24 letters). This boils down to the following translations:
 
@@ -15,7 +15,7 @@ f   AABAB   m     ABABB   s    BAAAB   z     BABBB
 
 ## Installation
 
-Via [npm](http://npmjs.org/):
+Via [npm](https://www.npmjs.com/):
 
 ```bash
 npm install bacon-cipher
@@ -39,7 +39,7 @@ In a browser:
 <script src="bacon.js"></script>
 ```
 
-In [Narwhal](http://narwhaljs.org/), [Node.js](http://nodejs.org/), and [RingoJS](http://ringojs.org/):
+In [Narwhal](http://narwhaljs.org/), [Node.js](https://nodejs.org/), and [RingoJS](http://ringojs.org/):
 
 ```js
 var bacon = require('bacon-cipher');
@@ -154,7 +154,7 @@ $ bacon --encode < foo.txt > foo-bacon.txt
 Or do the same with an online text file:
 
 ```bash
-$ curl -sL 'http://mths.be/brh' | bacon --encode > bacon.txt
+$ curl -sL 'https://mths.be/brh' | bacon --encode > bacon.txt
 ```
 
 Or, the opposite — read a local file containing Bacon ciphertext, decode it back to plain text, and save the result to a new file:
@@ -185,8 +185,8 @@ This project inspired Joseph Werle to create [a C implementation of the Baconian
 
 | [![twitter/mathias](https://gravatar.com/avatar/24e08a9ea84deb17ae121074d0f17125?s=70)](https://twitter.com/mathias "Follow @mathias on Twitter") |
 |---|
-| [Mathias Bynens](http://mathiasbynens.be/) |
+| [Mathias Bynens](https://mathiasbynens.be/) |
 
 ## License
 
-_bacon_ is available under the [MIT](http://mths.be/mit) license.
+_bacon_ is available under the [MIT](https://mths.be/mit) license.

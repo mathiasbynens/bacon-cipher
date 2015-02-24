@@ -2,7 +2,7 @@
 	"name": "bacon-cipher",
 	"version": "0.1.0",
 	"description": "A robust JavaScript implementation of Bacon’s cipher, a.k.a. the Baconian cipher.",
-	"homepage": "http://mths.be/bacon",
+	"homepage": "https://mths.be/bacon",
 	"main": "bacon.js",
 	"bin": {
 		"bacon": "bin/bacon"
@@ -22,23 +22,16 @@
 		"decode",
 		"decrypt"
 	],
-	"licenses": [
-		{
-			"type": "MIT",
-			"url": "http://mths.be/mit"
-		}
-	],
+	"license": "MIT",
 	"author": {
 		"name": "Mathias Bynens",
-		"url": "http://mathiasbynens.be/"
+		"url": "https://mathiasbynens.be/"
 	},
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/mathiasbynens/bacon-cipher.git"
 	},
-	"bugs": {
-		"url": "https://github.com/mathiasbynens/bacon-cipher/issues"
-	},
+	"bugs": "https://github.com/mathiasbynens/bacon-cipher/issues",
 	"files": [
 		"LICENSE-MIT.txt",
 		"bacon.js",
